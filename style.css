@@ -1,0 +1,9 @@
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.postit{
+    background-color: aquamarine;
+    padding: 20px;
+    margin: 20px;
+}
