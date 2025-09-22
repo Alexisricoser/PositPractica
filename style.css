@@ -7,3 +7,11 @@
     padding: 20px;
     margin: 20px;
 }
+
+button {
+    background: rgb(0, 102, 255);
+    color: white;
+    border: 0;
+    padding: 1em;
+    border-radius: 4px;
+}
