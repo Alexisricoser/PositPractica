@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-let cuadrotexto;
- 
-=======
 
 (function(){
     var f=document,g=JSON.parse(localStorage.getItem("n"))||[],h=f.getElementById("a"),i=f.getElementById("b"),j=f.getElementById("c");
@@ -10,4 +6,3 @@ let cuadrotexto;
     h.addEventListener("submit",function(o){o.preventDefault();var p=i.value.trim();if(p==="")return;k(p);l();i.value=""});
     g.forEach(function(u){k(u)})
   })();
->>>>>>> 42a4b419530499e4f21baf33b6983be30f7515bf
