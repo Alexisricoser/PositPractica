@@ -7,7 +7,9 @@
     padding: 20px;
     margin: 20px;
 }
-#h1{
+h1 {
     text-align: center;
-    color: blue;
+    color: #1E3A8A;       
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2); 
 }
