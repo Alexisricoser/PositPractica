@@ -1,6 +1,7 @@
 .grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1em;
 }
 .postit{
     background-color: aquamarine;
@@ -15,4 +16,28 @@ button {
     padding: 1em;
     border-radius: 4px;
     box-shadow: 1px 3px 3px black;
+}
+
+.grid div:nth-child(even) {
+    background-color: blue;
+    padding: 1em;
+     transform: rotate(5deg);
+}
+
+.grid div:nth-child(odd) {
+    background-color: red;
+    padding: 1em;
+     transform: rotate(1deg);
+}
+
+.grid div:nth-child(2n) {
+    background-color: aquamarine;
+    padding: 1em;
+    transform: rotate(3deg);
+}
+
+.grid div:nth-child(3n) {
+    background-color: green;
+    padding: 1em;
+        transform: rotate(-1deg);
 }
