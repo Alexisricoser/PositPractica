@@ -7,6 +7,24 @@
     padding: 20px;
     margin: 20px;
 }
+
+button {
+    background: rgb(0, 102, 255);
+    color: white;
+    border: 0;
+    padding: 1em;
+    border-radius: 4px;
+    box-shadow: 1px 3px 3px black;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.postit{
+    background-color: aquamarine;
+    padding: 20px;
+    margin: 20px;
+}
 h1 {
     text-align: center;
     color: #1E3A8A;       
