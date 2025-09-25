@@ -14,5 +14,27 @@ button {
     border: 0;
     padding: 1em;
     border-radius: 4px;
-    box-shadow: 1px 3px 3px black;
+    box-shadow: 2px 2px 2px black;
+}
+textarea{
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 2px black;
+    padding: 10%;
+}
+  textarea:hover {
+    animation: agrandar 1s forwards;
+  }
+
+  @keyframes agrandar {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.05);
+    }
+  }
+
+p{
+font-family: fantasy;
+width: auto;
 }
