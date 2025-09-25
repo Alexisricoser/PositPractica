@@ -3,11 +3,11 @@ localStorage.removeItem("postit", null);
 
 let lista = ["fdsf","dsfsdf"];
 
-localStorage.setItem("prueba", lista);
+localStorage.setItem("lista_de_notas", JSON.stringify(lista));
 
-let recuperada = localStorage.getItem("prueba");
+let arrayRecuperada = JSON.parse(localStorage.getItem("lista_de_notas"))
 
-console.log(recuperada[0]);
+console.log(arrayRecuperada[0]);
 
 botonenviar.addEventListener("click"   ,  (evento) => {
   evento.preventDefault();
