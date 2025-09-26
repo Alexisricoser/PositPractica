@@ -1,21 +1,22 @@
+  let postit = JSON.parse(localStorage.getItem("postit")) == null ? [] : JSON.parse(localStorage.getItem("postit"));
 
-localStorage.removeItem("postit", null);
+  botonenviar.addEventListener("click", (evento) => {
+    evento.preventDefault();
 
-let lista = ["fdsf","dsfsdf"];
+    postit.push(contenido.value);
+    localStorage.setItem("postit", JSON.stringify(postit));
 
-localStorage.setItem("lista_de_notas", JSON.stringify(lista));
+    let div = document.createElement("div");
+    div.innerText = contenido.value;
+    notasgrid.appendChild(div);
 
-let arrayRecuperada = JSON.parse(localStorage.getItem("lista_de_notas"))
+  });
 
-console.log(arrayRecuperada[0]);
-
-botonenviar.addEventListener("click"   ,  (evento) => {
-  evento.preventDefault();
-  let div = document.createElement("div");
-  div.innerText = contenido.value;
-  notasgrid.appendChild(div);
-
-  localStorage.setItem("postit", contenido.value);
-});
-
-
+  function cargarPostit(){
+    for(let i = 0 ; i < postit.length; i++){
+      let div = document.createElement("div");
+      div.innerText = postit[i];
+      notasgrid.appendChild(div);
+    }
+  };
+  cargarPostit();
