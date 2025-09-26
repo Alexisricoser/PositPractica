@@ -1,4 +1,4 @@
-button {
+#formulario button{
     background: rgb(0, 102, 255);
     color: white;
     border: 0;
@@ -28,6 +28,15 @@ h1 {
 
 #notasgrid div {
     overflow-wrap: break-word;
+}
+#notasgrid div button{
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+    color: black;
+    background-color: red;
+    border: 0;
 }
 
 #notasgrid div:nth-child(even) {
