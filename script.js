@@ -7,7 +7,6 @@
     localStorage.setItem("postit", JSON.stringify(postit));
 
     let div = document.createElement("div");
-    div.id= "Item" + postit.length
     div.innerText = contenido.value;
     notasgrid.appendChild(div);
 
@@ -20,4 +19,5 @@
       notasgrid.appendChild(div);
     }
   };
+
   cargarPostit();
