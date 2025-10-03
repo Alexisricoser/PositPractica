@@ -50,3 +50,18 @@
     padding: 1em;
         transform: rotate(-1deg);
 }
+
+#contenido{
+    resize: none;
+    width: 300px;
+    height: 80px;
+    background-color: ghostwhite;
+
+
+}
+#formulario{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
