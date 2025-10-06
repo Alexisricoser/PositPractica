@@ -1,9 +1,7 @@
 
 localStorage.removeItem("postit", null);
-let doc=document
-let form=doc.getElementById("formulario");
-let input=doc.getElementById("contenido");
-let container=doc.getElementById("notasgrid")
+
+
 
 let lista = [];
 
@@ -14,27 +12,45 @@ let lista = [];
 
 
 
-botonenviar.addEventListener("click"   ,  (evento) => {
+botonenviar.addEventListener("click", (evento) => {
   evento.preventDefault();
-  let div = document.createElement("div");
-  div.className="notas"
-  let botonBorrar=document.createElement("button")
-  botonBorrar.className="borrar"
-  div.innerText = contenido.value;
+
+
+  const div = document.createElement("div");
+  div.className = "notas";
+
+
+  const textoNota = document.createElement("p");
+  textoNota.innerText = contenido.value;
+
+
+  const botonBorrar = document.createElement("button");
+  botonBorrar.className = "borrar";
+  botonBorrar.innerText = "x";
+
+
+  div.appendChild(textoNota);
+  div.appendChild(botonBorrar);
   notasgrid.appendChild(div);
-  botonBorrar.innerText="x"
-  div.appendChild(botonBorrar)
-  lista.push(contenido.value)
+
+
+  lista.push(contenido.value);
   localStorage.setItem("postit", JSON.stringify(lista));
-  let contenidoRecuperada=JSON.parse(localStorage.getItem("postit"))
-  
 
-  botonBorrar.addEventListener("click",(evento)=>{
-    container.removeChild(div)
-  })
 
-  
+  botonBorrar.addEventListener("click", () => {
+    notasgrid.removeChild(div);
+
+
+    const texto = textoNota.textContent;
+    lista = lista.filter((nota) => nota !== texto);
+    localStorage.setItem("postit", JSON.stringify(lista));
+  });
+
+
+  contenido.value = "";
 });
+
 
 
 
