@@ -2,6 +2,8 @@ localStorage.removeItem("postit", null);
 
 
 
+
+
 let lista = [];
 
 
@@ -30,6 +32,9 @@ botonenviar.addEventListener("click", (evento) => {
   div.appendChild(botonBorrar);
   
   notasgrid.appendChild(div);
+
+
+  lista.push(contenido.value);
 
 
   lista.push(contenido.value);
