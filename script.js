@@ -1,39 +1,62 @@
-  let postit = JSON.parse(localStorage.getItem("postit")) == null ? [] : JSON.parse(localStorage.getItem("postit"));
+localStorage.removeItem("postit", null);
 
-  botonenviar.addEventListener("click", (evento) => {
-    evento.preventDefault();
 
-    postit.push(contenido.value);
-    localStorage.setItem("postit", JSON.stringify(postit));
 
-    let div = document.createElement("div");
-    div.innerText = contenido.value;
-    div.id= 'item' + postit.length
-    const botonEditar = document.createElement("button");
-    botonEditar.className = "Editar";
-    botonEditar.innerText = "Editar";
-    botonEditar.addEventListener('click', editar(div.id))
-    div.appendChild(botonEditar);
-    notasgrid.appendChild(div);
+let lista = [];
 
+
+botonenviar.addEventListener("click", (evento) => {
+  evento.preventDefault();
+
+
+  const div = document.createElement("div");
+  div.className = "notas";
+
+
+  const textoNota = document.createElement("p");
+  textoNota.innerText = contenido.value;
+
+
+  const botonBorrar = document.createElement("button");
+  botonBorrar.className = "borrar";
+  botonBorrar.innerText = "x";
+
+  const botonEditar = document.createElement("button");
+  botonEditar.className = "editar";
+  botonEditar.innerText = "editar";
+
+  div.appendChild(textoNota);
+  div.appendChild(botonEditar);
+  div.appendChild(botonBorrar);
+  
+  notasgrid.appendChild(div);
+
+
+  lista.push(contenido.value);
+  localStorage.setItem("postit", JSON.stringify(lista));
+
+
+  botonBorrar.addEventListener("click", () => {
+    notasgrid.removeChild(div);
+
+
+    const texto = textoNota.textContent;
+    lista = lista.filter((nota) => nota !== texto);
+    localStorage.setItem("postit", JSON.stringify(lista));
   });
+  botonEditar.addEventListener("click", () => {
+    let nuevoTexto = prompt('Escribe el nuevo texto')
 
-  function cargarPostit(){
-    for(let i = 0 ; i < postit.length; i++){
-      let div = document.createElement("div");
-      div.innerText = postit[i];
-      const botonEditar = document.createElement("button");
-      botonEditar.className = "Editar";
-      botonEditar.innerText = "Editar";
-      div.appendChild(botonEditar);
-      notasgrid.appendChild(div);
-
+    const texto = textoNota.textContent;
+    for(let i = 0; i<lista.length; i++){
+      if(lista[i] == texto){
+        lista[i] = nuevoTexto
+      }
     }
-  };
 
-  function editar(id){
-    let contenido = prompt('Texto a cambiar');
-    id.innerText=contenido
-  }
+    textoNota.innerText = nuevoTexto
 
-  cargarPostit();
+    localStorage.setItem("postit", JSON.stringify(lista));
+  });
+  contenido.value = "";
+});
